@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    @model Patient
+    <div class="text-left">
+
+        <div>
+            <h1>Welcome, @Model.Name </h1>
+        </div>
+
+        @* <div>
+            <table class="table table-striped table-light">
+                <tr>
+                    <th>ID</th>
+                    <th>Patient Name</th>
+                    <th>Date of Birth</th>
+                    <th>Gender</th>
+                    <th>Blood Group</th>
+                    <th>Address</th>
+                    <th>Contact</th>
+                    <th>Hospital</th>
+                    <th>Edit Your Info</th>
+                </tr>
+                <tr>
+                    <td>@Model.PatientId</td>
+                    <td>@Model.Name</td>
+                    <td>@Model.Birthday.ToString("d")</td>
+                    <td>@Model.Gender</td>
+                    <td>@Model.BloodGroup</td>
+                    <td>@Model.Address</td>
+                    <td>Phone Number: @Model.PhoneNumber <br/> Email: @Model.Email</td>
+                    <td>@Model.Hospital</td>
+                    <td>
+                        <a asp-action="EditPatient" asp-controller="Donation" asp-route-patientId="@Model.PatientId"><button class="btn btn-sm btn-info">Edit</button></a>
+                    </td>
+                </tr>
+            </table>
+        </div> *@
+
+        <div>
+            <p><strong>Request ID: </strong>@Model.PatientId</p>
+            <p><strong>Name: </strong>@Model.Name</p>
+            <p><strong>Date of Birth: </strong>@Model.Birthday.ToString("d")</p>
+            <p><strong>Gender: </strong>@Model.Gender</p>
+            <p><strong>Blood Group: </strong>@Model.BloodGroup</p>
+            <p><strong>Address: </strong>@Model.Address</p>
+            <p><strong>Contact Info: </strong> <br/> Phone Number: @Model.PhoneNumber, Email: @Model.Email</p>
+            <p><strong>Hospital: </strong>@Model.Hospital</p>
+            <p><strong>Edit Your Info: </strong><a asp-action="EditPatient" asp-controller="Donation" asp-route-patientId="@Model.PatientId"><button class="btn btn-sm btn-info">Edit</button></a></p>
+            <p>
+                <strong>Your Request status is:</strong>
+                @if( Model.Needer.Any(p => p.PatientId == p.PatientId ))
+                {
+                    <p style="color:green;">Completed</p>
+                }
+                else
+                {
+                    <p style="color:red;">Processing</p>
+                }
+            </p>
+        </div>
+
+    </div>
+</body>
+</html>

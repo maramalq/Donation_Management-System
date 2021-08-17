@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donor </title>
+</head>
+<body>
+@model Donor
+    <div class="text-center">
+
+        <div>
+            <img src="~/img/one.png" alt="donor" style="width: 250px;"/>
+        </div>
+
+
+        <div style="margin: 20px auto; width: 400px;">
+            <form asp-action="CreateDonor" asp-controller="Donation" method="POST">
+
+                <div>
+                    @* <label asp-for="Name"></label> *@
+                    <input asp-for="Name" class="form-control" placeholder="Your Name" />
+                    <span asp-validation-for="Name" style="color: red;"></span> <br />
+                </div>
+
+                <div>
+                    <label asp-for="Birthday"></label>
+                    <input asp-for="Birthday" class="form-control" />
+                    <span asp-validation-for="Birthday" style="color: red;"></span> <br />
+                </div>
+
+                <div>
+                    <label asp-for="BloodGroup"></label>
+                    <select asp-for="BloodGroup" class="form-control">
+                        <option value="O-">O-</option>
+                        <option value="O+">O+</option>
+                        <option value="A-">A-</option>
+                        <option value="A+">A+</option>
+                        <option value="B-">B-</option>
+                        <option value="B+">B+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="AB+">AB+</option>
+                    </select>
+                    <span asp-validation-for="BloodGroup" style="color: red;"></span> <br />
+                </div>
+
+                <div>
+                    <label asp-for="Gender"></label>
+                    Male <input asp-for="Gender" type="radio" value="Male" />
+                    Female <input asp-for="Gender" type="radio" value="Female" />
+                </div>
+
+                <div>
+                    <input asp-for="Address" class="form-control" placeholder="Your Address" />
+                    <span asp-validation-for="Address" style="color: red;"></span> <br />
+                </div>
+
+                <div>
+                    @* <label asp-for="PhoneNumber"></label> *@
+                    <input asp-for="PhoneNumber" class="form-control" placeholder="Your Phone Number" />
+                    <span asp-validation-for="PhoneNumber" style="color: red;"></span> <br />
+                </div>
+
+                <div>
+                    @* <label asp-for="Hosptial"></label> *@
+                    <input asp-for="Hospital" class="form-control" placeholder="Hospital" />
+                    <span asp-validation-for="Hospital" style="color: red;"></span> <br />
+                </div>
+
+                <div>
+                    @* <label asp-for="Hosptial"></label> *@
+                    <input asp-for="Email" class="form-control" placeholder="Email" />
+                    <span asp-validation-for="Email" style="color: red;"></span> <br />
+                </div>
+                
+                <div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+
+            
+            </form>
+        </div>
+
+    
+</body>
+</html>

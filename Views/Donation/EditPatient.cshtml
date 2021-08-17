@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        @model Patient
+
+    <div class="text-center">
+
+        <div class="row">
+
+            <div class="col-sm-3">
+            </div>
+
+            <div class="col-sm-6">
+                <h3>Edit Your info</h3>
+                <form asp-action="UpdatePatient" asp-controller="Donation" method="POST">
+
+                    <div>
+                        @* <label asp-for="Name"></label> *@
+                        <input asp-for="Name" class="form-control" placeholder="Your Name" />
+                        <span asp-validation-for="Name" style="color: red;"></span> <br />
+                    </div>
+
+                    <div>
+                        <label asp-for="Birthday"></label>
+                        <input asp-for="Birthday" class="form-control" />
+                        <span asp-validation-for="Birthday" style="color: red;"></span> <br />
+                    </div>
+
+                    <div>
+                        <label asp-for="BloodGroup"></label>
+                        <select asp-for="BloodGroup" class="form-control">
+                            <option value="O-">O-</option>
+                            <option value="O+">O+</option>
+                            <option value="A-">A-</option>
+                            <option value="A+">A+</option>
+                            <option value="B-">B-</option>
+                            <option value="B+">B+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="AB+">AB+</option>
+                        </select>
+                        <span asp-validation-for="BloodGroup" style="color: red;"></span> <br />
+                    </div>
+
+                    <div>
+                        Male <input asp-for="Gender" type="radio" value="Male" />
+                        Female <input asp-for="Gender" type="radio" value="Female" />
+                    </div>
+
+                    <div>
+                        @* <label asp-for="Address"></label> *@
+                        <input asp-for="Address" class="form-control" placeholder="Your Address" />
+                        <span asp-validation-for="Address" style="color: red;"></span> <br />
+                    </div>
+
+                    <div>
+                        @* <label asp-for="PhoneNumber"></label> *@
+                        <input asp-for="PhoneNumber" class="form-control" placeholder="Your Phone Number" />
+                        <span asp-validation-for="PhoneNumber" style="color: red;"></span> <br />
+                    </div>
+
+                    <div>
+                        @* <label asp-for="Hosptial"></label> *@
+                        <input asp-for="Hospital" class="form-control" placeholder="Hospital" />
+                        <span asp-validation-for="Hospital" style="color: red;"></span> <br />
+                    </div>
+
+                    <div>
+                        @* <label asp-for="Hosptial"></label> *@
+                        <input asp-for="Email" class="form-control" placeholder="Email" />
+                        <span asp-validation-for="Email" style="color: red;"></span> <br />
+                    </div>
+
+                    <div>
+                        @* <label asp-for="Password"></label> *@
+                        <input asp-for="Password" class="form-control" placeholder="Your current Password"/>
+                        <span asp-validation-for="Password" style="color: red;"></span> <br />
+                    </div>
+
+                    <div>
+                        @* <label asp-for="Password"></label> *@
+                        <input asp-for="Confirm" class="form-control" placeholder="Confirm your current Password"/>
+                        <span asp-validation-for="Password" style="color: red;"></span> <br />
+                    </div>
+
+                    <div>
+                        <button type="submit" class="btn btn-outline-success">Edit</button>
+                        <a asp-action="Info" asp-controller="Donation" class="btn btn-outline-info">Cancel</a>
+                    </div>
+
+                
+                </form>
+            </div>
+
+            <div class="col-sm-3">
+            </div>
+
+        </div>
+    
+    </div>
+</body>
+</html>

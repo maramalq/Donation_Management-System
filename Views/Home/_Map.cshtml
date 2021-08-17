@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Add Map</title>
+
+    <style type="text/css">
+      /* Set the size of the div element that contains the map */
+      #map {
+        height: 400px;
+        /* The height is 400 pixels */
+        width: 100%;
+        /* The width is the width of the web page */
+      }
+    </style>
+    <script>
+      // Initialize and add the map
+      function initMap() {
+        // The location of Uluru
+        const uluru = { lat: 24.7505630, lng: 46.8528056 };
+        const ulurx = { lat: 24.6699808, lng: 46.6762036 };
+        const ulury = { lat: 24.7114264, lng: 46.6211040 };
+        // The map, centered at Uluru
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 10,
+          center: uluru,
+        });
+        // The marker, positioned at Uluru
+        const marker = new google.maps.Marker({
+          position: uluru,
+          map: map,
+        });
+
+        const markerx = new google.maps.Marker({
+          position: ulurx,
+          map: map,
+        });
+
+        const markery = new google.maps.Marker({
+          position: ulury,
+          map: map,
+        });
+
+      }
+    </script>
+  </head>
+  <body>
+    <!--The div element for the map -->
+    <div id="map">
+
+    </div> <br/>
+
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAI-jJPzM4XAeQVIY4tmQtPWHgNlbUO284&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
+  </body>
+</html>

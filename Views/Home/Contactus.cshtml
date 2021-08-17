@@ -1,0 +1,58 @@
+﻿ @model Contact
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us </title>
+</head>
+<body>
+    <div class="col-sm-6">
+        @if (ViewBag.Message == null)
+            {
+            <form asp-action="Contact" asp-controller="Home" method="POST">
+                <h6> Contact Us </h6>
+
+                        <div> 
+                            @* <label asp-for="Name"></label> *@
+                            <input asp-for="Name" class="form-control" placeholder="Your Name" />
+                            <span asp-validation-for="Name" style="color: red;"></span> <br />
+                        </div> 
+
+                        <div>
+                            @* <label asp-for="EmailAddress"></label>  *@
+                            <input asp-for="EmailAddress" class="form-control" placeholder="Your Email" />
+                            <span asp-validation-for="EmailAddress" style="color: red;"></span> <br />
+                        </div> 
+
+                        <div> 
+                            @* <label asp-for="Title"></label> *@
+                            <input asp-for="Title" class="form-control" placeholder="Your Message Title" />
+                            <span asp-validation-for="Title" style="color: red;"></span> <br />
+                        </div> 
+                        
+                        <div> 
+                            @* <label asp-for="Msg"></label>  *@
+                            <textarea asp-for="Msg" class="form-control" placeholder="Your Message" ></textarea>
+                            <span asp-validation-for="Msg" style="color: red;"></span> <br />
+                        </div>
+
+                        <div>
+                            <button type="submit" class="btn btn-info">Send</button>
+                        </div>
+            </form>
+            }
+    </div>
+
+   <div>
+        <div>
+            @if (ViewBag.Message != null)
+            {
+                <div>@ViewBag.Message <a asp-action="Index" asp-controller="Home">Back to the Home Page</a></div>
+            }
+        </div>
+    </div>
+
+</body>
+</html> 

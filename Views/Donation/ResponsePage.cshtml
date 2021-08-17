@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    @model Container
+    <div>
+
+        <div class="col-md-8">
+
+        <form asp-action="ProcessResponse" asp-controller="Donation" method="POST" asp-route-id="@Model.Donor.DonorId">
+
+            <div>
+                <h3>Donor Detials </h3>
+            </div>
+
+            <div>
+                <label asp-for="@Model.Donor.DonorId"></label>
+                <input asp-for="@Model.Donor.DonorId" class="form-control" />
+                <span asp-validation-for="@Model.Donor.DonorId" style="color: red;"></span> <br />
+            </div>
+
+            <div>
+                <label asp-for="@Model.Donor.Name"></label>
+                <input asp-for="@Model.Donor.Name" class="form-control" />
+                <span asp-validation-for="@Model.Donor.Name" style="color: red;"></span> <br />
+            </div>
+
+            <h3>Fill the patient information</h3>
+
+            <div>
+                <select class="form-control" name="AssoId">
+                @foreach (Patient patient in Model.Patients)
+                    {
+                    <option class="form-control" value="@patient.PatientId">@patient.Name</option>
+                    }
+                </select> <br/>
+            </div>
+            <input type="hidden" asp-for="@Model.Donor.DonorId" value="@Model.Donor.DonorId"/>
+
+            @* <div>
+                <label asp-for="@Model.Patient.PatientId"></label>
+                <input asp-for="@Model.Patient.PatientId" class="form-control" />
+                <span asp-validation-for="@Model.Patient.PatientId" style="color: red;"></span> <br />
+            </div>
+
+             <div>
+                <label asp-for="@Model.Patient.Name"></label>
+                <input asp-for="@Model.Patient.Name" class="form-control" />
+                <span asp-validation-for="@Model.Patient.Name" style="color: red;"></span> <br />
+            </div>  *@
+
+            @* <div>
+                <label asp-for="@Model.Patient.BloodGroup"></label>
+                <input asp-for="@Model.Patient.BloodGroup" class="form-control" />
+                <span asp-validation-for="@Model.Patient.BloodGroup" style="color: red;"></span> <br />
+            </div>
+
+            <div>
+                <label asp-for="@Model.Patient.Hospital"></label>
+                <input asp-for="@Model.Patient.Hospital" class="form-control" />
+                <span asp-validation-for="@Model.Patient.Hospital" style="color: red;"></span> <br />
+            </div>  *@
+
+            <div>
+                <button type="submit" class="btn btn-outline-primary">Response</button>
+            </div>
+
+        </form>
+    </div>
+</body>
+</html>
